@@ -1,2 +1,8 @@
+#carpeta donde se compila el cliente del proyecto
 output
+
+#archivo donde se almacena el IntelliSense local
 .vscode/c_cpp_properties.json
+
+#carpeta de modulos node.JS
+node_modules
