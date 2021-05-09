@@ -1,11 +1,15 @@
-
+#include <WiFiManager.h>
 
 void setup() {
     Serial.begin(115200);
-    delay(1000);
-    Serial.println("Hola mundo");
+    WiFiManager wm;
+    if ( !wm.autoConnect("SmartPot-setup" ) ) {
+        Serial.println("Error al conectar");
+    }
+    else {
+        Serial.println("Conectado!!");
+    }
 }
 
-void loop() {
-    
+void loop(){
 }
