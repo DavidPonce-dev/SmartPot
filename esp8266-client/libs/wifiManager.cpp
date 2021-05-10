@@ -1,5 +1,7 @@
 #include <WiFiManager.h>
 
+const char* apSSID = "SmartPot-setup";
+
 void wifiManager() {
     WiFi.mode(WIFI_STA);
     WiFiManager wm;
@@ -9,6 +11,7 @@ void wifiManager() {
     wm.setClass("invert");
     wm.setConnectTimeout(10);
 
-    while( !wm.autoConnect("SmartPot-setup" ) );
+    if( !wm.autoConnect( apSSID ) ) ESP.restart();
+
     Serial.println("Conectado");
 }
