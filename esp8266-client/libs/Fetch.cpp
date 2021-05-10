@@ -2,7 +2,7 @@
 
 class Fetch{
     public:
-    void GET(String url, void (*callback)(int, String)){
+    void GET(String url, (*callback)(int, String) -> void){
         http.begin(url.c_str());
         httpResponseCode = http.GET();
         payload = http.getString();
