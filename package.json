@@ -1,0 +1,19 @@
+{
+  "name": "smartpot-server",
+  "version": "0.0.1",
+  "description": "servidor de ejecucion express",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidPonce-dev/SmartPot.git"
+  },
+  "author": "Eduardo Chami",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidPonce-dev/SmartPot/issues"
+  },
+  "homepage": "https://github.com/DavidPonce-dev/SmartPot#readme"
+}
