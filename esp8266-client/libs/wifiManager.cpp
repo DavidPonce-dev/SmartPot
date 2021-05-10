@@ -12,6 +12,4 @@ void wifiManager() {
     wm.setConnectTimeout(10);
 
     if( !wm.autoConnect( apSSID ) ) ESP.restart();
-
-    Serial.println("Conectado");
 }
