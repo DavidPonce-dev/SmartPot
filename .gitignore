@@ -6,3 +6,4 @@ output
 
 #carpeta de modulos node.JS
 node_modules
+package-lock.json
