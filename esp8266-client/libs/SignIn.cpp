@@ -17,11 +17,10 @@ class SignIn{
 
     void registro(String uri) {
         String response = "";
-        fetch.GET( uri, [&response] (int httpCode, String payload){
+        fetch.GET( uri, [] (int httpCode, String payload){
             if (httpCode == HTTP_CODE_OK || httpCode == HTTP_CODE_MOVED_PERMANENTLY){
-                response = payload;
+                Serial.println(payload);
             }
         } );
-        Serial.println(response);
     }
 };
