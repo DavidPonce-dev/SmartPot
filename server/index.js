@@ -4,18 +4,17 @@ const app = express();
 //routes
 
 const potRoutes = require('./routes/potAPI')
+const webRoutes = require('./routes/web')
 
+app.use(webRoutes)
 app.use('/api/', potRoutes)
 
-app.get('/', function(req, res) {
-    res.send('Hola mundo!');
-});
-app.get('/login', function(req, res) {
-    res.send('pagina de login!');
-});
-app.get('/register', function(req, res) {
-    res.send('Pagina de registro!');
-});
+//middlewares
+
+const morgan = require("morgan");
+
+app.use(morgan("dev"));
+app.use(express.json())
 
 app.listen(3000, ()=>{
     console.log("Servidor corriendo en el puerto 3000");
