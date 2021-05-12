@@ -15,7 +15,7 @@ class Fetch{
         httpResponseCode = http.POST(data);
         payload = http.getString();
         http.end();
-        callback(&httpResponseCode, &payload);
+        callback(httpResponseCode, payload);
     }
 
     private:
