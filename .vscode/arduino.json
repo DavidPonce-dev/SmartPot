@@ -3,5 +3,5 @@
     "board": "esp8266:esp8266:nodemcuv2",
     "output": "output",
     "sketch": "esp8266-client\\esp8266-client.ino",
-    "port": "COM3"
+    "port": "COM4"
 }
