@@ -2,16 +2,21 @@
 
 class Fetch{
     public:
-    void GET(String url, void (*callback)(int, String)){
+    static void GET(String url, void (*callback)(int, String)){
         http.begin(url.c_str());
         httpResponseCode = http.GET();
         payload = http.getString();
         http.end();
         callback(httpResponseCode, payload);
     }
-    void POST(){}
-    void PUT(){}
-    void DELETE(){}
+    static void POST(String url, String data, void (*callback)(int, String)){ //(httpCode, response)
+        http.begin(url.c_str());
+        http.addHeader("Content-Type", "application/json");
+        httpResponseCode = http.POST(data);
+        payload = http.getString();
+        http.end();
+        callback(&httpResponseCode, &payload);
+    }
 
     private:
     HTTPClient http;
