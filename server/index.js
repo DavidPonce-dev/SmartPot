@@ -1,6 +1,12 @@
 const express = require("express");
 const app = express();
 
+//routes
+
+const potRoutes = require('./routes/potAPI')
+
+app.use('/api/', potRoutes)
+
 app.get('/', function(req, res) {
     res.send('Hola mundo!');
 });
