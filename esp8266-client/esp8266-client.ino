@@ -1,13 +1,12 @@
 #include "libs/wifiManager.cpp"
 #include "libs/SignIn.cpp"
 
-String dominio = "http://192.168.43.236:3000";
-SignIn signIn;
+SignIn signIn("http://192.168.43.236:3000");
 
 void setup() {
     Serial.begin(115200);
     wifiManager();
-    signIn.begin(dominio + "/api/login", dominio + "/api/register");
+    signIn.begin();
 }
 
 void loop(){
