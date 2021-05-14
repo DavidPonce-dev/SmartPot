@@ -2,20 +2,20 @@
 
 class Fetch{
     public:
-    void GET(String url, void (*callback)(int, String)){
+    String GET(String url, String (*callback)(int, String)){
         http.begin(url.c_str());
         httpResponseCode = http.GET();
         payload = http.getString();
         http.end();
-        callback(httpResponseCode, payload);
+        return callback(httpResponseCode, payload);
     }
-    void POST(String url, String data, void (*callback)(int, String)){ //(httpCode, response)
+    String POST(String url, String data, String (*callback)(int, String)){ //(httpCode, response)
         http.begin(url.c_str());
         http.addHeader("Content-Type", "application/json");
         httpResponseCode = http.POST(data);
         payload = http.getString();
         http.end();
-        callback(httpResponseCode, payload);
+        return callback(httpResponseCode, payload);
     }
 
     private:
