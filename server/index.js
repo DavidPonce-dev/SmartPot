@@ -11,11 +11,20 @@ app.use('/api/', potRoutes)
 
 //middlewares
 
-const morgan = require("morgan");
-
-app.use(morgan("dev"));
+app.use(require("morgan")("dev"));
 app.use(express.json())
 
-app.listen(3000, ()=>{
-    console.log("Servidor corriendo en el puerto 3000");
-});
+//listener
+
+const main = async () => {
+    try {
+        //await require("./db");
+        app.listen(3000, ()=>{
+            console.log("Servidor corriendo en el puerto 3000");
+        });
+
+    } catch (error) {
+        console.error(error)
+    }
+}
+main();

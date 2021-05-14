@@ -12,16 +12,11 @@ public:
 			registro();
 	}
 
-	String getApikey(){
-		return apiKey;
-	}
-	void setApikey(String nApiKey){
-		this->apiKey = nApiKey;
-	}
-
 private:
-	String apiKey = "";
+	String jsonID = (String)"{\"chipId:\":\"" + ESP.getChipId() + "\"}";
 	String dominio = "";
+	String uri = "";
+	String data = "";
 	Fetch fetch;
 
 	boolean login(){
@@ -30,11 +25,16 @@ private:
 	}
 
 	void registro(){
-		String uri = dominio + "/api/register";
-		fetch.POST(uri, (String) "{\"id:\":\"" + ESP.getChipId() + "\"}", [](int httpCode, String payload) {
+		uri = dominio + "/api/register";
+		
+		data = fetch.POST(uri, jsonID, [](int httpCode, String payload) {
+			Serial.print("http code: ");
+			Serial.println(httpCode);
 			if (httpCode == HTTP_CODE_OK || httpCode == HTTP_CODE_MOVED_PERMANENTLY){
-				Serial.println(payload);
+				return payload;
 			}
 		});
+
+		Serial.println(this->data);
 	}
 };
