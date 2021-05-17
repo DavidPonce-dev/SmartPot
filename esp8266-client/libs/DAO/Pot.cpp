@@ -12,10 +12,11 @@ class Pot{
 			registro();
         }
 	}
+
+	void loop(){}
     
     private:
     String chipID = "";
-    String apiKey = "";
 	String dominio = "";
 	String uri = "";
 	String data = "";
