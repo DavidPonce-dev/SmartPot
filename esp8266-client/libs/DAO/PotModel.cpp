@@ -1,6 +1,6 @@
 #include "Fetch.cpp"
 
-class Pot{
+class PotModel{
     public:
     void begin(String dominio){
 		chipID = "{\"chipId:\"";
@@ -16,11 +16,11 @@ class Pot{
 	void loop(){}
     
     private:
+	Fetch fetch;
     String chipID = "";
 	String dominio = "";
 	String uri = "";
 	String data = "";
-	Fetch fetch;
 
     boolean login(){
 		uri = dominio + "/api/login";
