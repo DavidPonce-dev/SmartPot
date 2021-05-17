@@ -6,7 +6,7 @@ router.post('/login', bodyParser.json(), function(req, res) {
 });
 router.post('/register', bodyParser.json(), function(req, res) {
     console.log(req.body);
-    res.send({status:"recibido"});
+    res.send({apiKey:"recibido"});
 });
 
 module.exports = router
