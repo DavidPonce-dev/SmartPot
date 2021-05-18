@@ -1,6 +1,6 @@
 #include "Fetch.cpp"
 
-class PotModel{
+class PotApi{
     public:
     void begin(String dominio){
 		chipID = "{\"chipId:\"";

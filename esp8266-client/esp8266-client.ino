@@ -1,8 +1,7 @@
 #include <WiFiManager.h>
-#include "libs/wifiManager.cpp"
-#include "libs/Pot.cpp"
+#include "libs/PotApi.cpp"
 
-Pot pot;
+PotApi pot;
 
 const char* apSSID = "SmartPot-setup";
 
