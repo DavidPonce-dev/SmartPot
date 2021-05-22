@@ -1,4 +1,5 @@
 #include "Fetch.cpp"
+#include "Model/Pot.cpp"
 
 class PotApi{
     public:
@@ -8,27 +9,21 @@ class PotApi{
 		chipID+= "\"}";
 
 		this->dominio = dominio;
-		if (!login()){
-			registro();
-        }
+		signIn();
 	}
 
 	void loop(){}
     
     private:
+	Pot pot();
 	Fetch fetch;
     String chipID = "";
 	String dominio = "";
 	String uri = "";
 	String data = "";
 
-    boolean login(){
-		uri = dominio + "/api/login";
-		return false;
-	}
-
-	void registro(){
-		uri = dominio + "/api/register";
+	void signIn(){
+		uri = dominio + "/api/signin";
 		
 		data = fetch.POST(uri, chipID, [](int httpCode, String payload) {
 			Serial.print("http code: ");
