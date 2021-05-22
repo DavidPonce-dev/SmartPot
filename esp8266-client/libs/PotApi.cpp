@@ -14,7 +14,14 @@ class PotApi{
 		signIn();
 	}
 
-	void loop(){}
+	void loop(){
+		if(millis() > uploadDelay){
+			
+			uploadPotData();
+
+			uploadDelay = millis() + 1000;
+		}
+	}
     
     private:
 	Pot pot;
@@ -23,16 +30,16 @@ class PotApi{
 	String dominio = "";
 	String uri = "";
 	String data = "";
+	unsigned long uploadDelay;
 
 	void signIn(){
 		uri = dominio + "/api/signin";
 		
-		data = fetch.POST(uri, chipID, [](int httpCode, String payload) {
-			Serial.print("http code: ");
-			Serial.println(httpCode);
+		data = fetch.POST(uri, chipID, [](int httpCode, String payload)  -> String {
 			if (httpCode == HTTP_CODE_OK || httpCode == HTTP_CODE_MOVED_PERMANENTLY){
 				return payload;
 			}
+			return "";
 		});
 
 		Serial.println(this->data);
@@ -43,12 +50,11 @@ class PotApi{
 
 		serializeJson(pot.toJsonDocument(), data);
 		
-		fetch.POST(uri, data, [](int httpCode, String payload) {
-			Serial.print("http code: ");
-			Serial.println(httpCode);
+		fetch.POST(uri, data, [](int httpCode, String payload) -> String {
 			if (httpCode == HTTP_CODE_OK || httpCode == HTTP_CODE_MOVED_PERMANENTLY){
 				return payload;
 			}
+			return "";
 		});
 
 	}
