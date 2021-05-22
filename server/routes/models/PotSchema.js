@@ -5,6 +5,10 @@ const potSchema = new Schema({
         type: String,
         required: true
     },
+    apiKey: {
+        type: String,
+        required: true
+    },
 })
 
 module.exports = model('PotSchema', potSchema)  
