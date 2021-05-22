@@ -1,3 +1,5 @@
+#include <ArduinoJson.h>
+
 #include "Fetch.cpp"
 #include "Model/Pot.cpp"
 
@@ -15,7 +17,7 @@ class PotApi{
 	void loop(){}
     
     private:
-	Pot pot();
+	Pot pot;
 	Fetch fetch;
     String chipID = "";
 	String dominio = "";
@@ -34,5 +36,20 @@ class PotApi{
 		});
 
 		Serial.println(this->data);
+	}
+
+	void uploadPotData(){
+		uri = dominio + "/api/getdata";
+
+		serializeJson(pot.toJsonDocument(), data);
+		
+		fetch.POST(uri, data, [](int httpCode, String payload) {
+			Serial.print("http code: ");
+			Serial.println(httpCode);
+			if (httpCode == HTTP_CODE_OK || httpCode == HTTP_CODE_MOVED_PERMANENTLY){
+				return payload;
+			}
+		});
+
 	}
 };

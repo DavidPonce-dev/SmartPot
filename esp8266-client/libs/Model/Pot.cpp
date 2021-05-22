@@ -3,7 +3,7 @@
 class Pot{
     public:
 
-    Pot();
+    Pot(){}
 
     Pot(String apikey, int waterLvl, int ppm, int ph){
         this->waterLevel = waterLvl;
