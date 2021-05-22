@@ -18,7 +18,8 @@ app.use(express.json())
 
 const main = async () => {
     try {
-        //await require("./db");
+        await require("./db");
+        console.log("DB iniciada");
         app.listen(3000, ()=>{
             console.log("Servidor corriendo en el puerto 3000");
         });
