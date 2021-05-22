@@ -1,3 +1,5 @@
+#include <ArduinoJson.h>
+
 class Pot{
     public:
 
@@ -9,6 +11,19 @@ class Pot{
         this->waterPh = ph;
         this->apikey = apikey;
     }
+
+    //toJsonDocument
+
+    DynamicJsonDocument toJsonDocument(){
+        DynamicJsonDocument doc(1);
+        doc["waterLevel"] = this->waterLevel;
+        doc["density"] = this->density;
+        doc["waterPh"] = this->waterPh;
+        doc["apikey"] = this->apikey;
+        return doc;
+    }
+
+    //getters & setters
 
     String getApikey(){
         return apikey;
