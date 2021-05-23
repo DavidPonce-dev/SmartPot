@@ -1,6 +1,8 @@
 const { Schema, model } = require('mongoose')
 
 const potDataSchema = new Schema({
+    _id: Number,
+
     waterLvl: {
         type: Number,
         required: true
@@ -15,4 +17,4 @@ const potDataSchema = new Schema({
     },
 })
 
-module.exports = model('potDataSchema', potDataSchema)  
+module.exports = model('PotDataSchema', potDataSchema)  
