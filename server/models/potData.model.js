@@ -1,8 +1,6 @@
 const { Schema, model } = require('mongoose')
 
 const potDataSchema = new Schema({
-    _id: Number,
-
     waterLvl: {
         type: Number,
         required: true

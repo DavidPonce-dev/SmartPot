@@ -1,14 +1,11 @@
 const { Schema, model } = require('mongoose')
 
 const potSchema = new Schema({
-    _id: Number,
-
     chipID: {
         type: String,
         required: true
     },
-
-    apiKey: {
+    name: {
         type: String,
         required: true
     },
@@ -18,4 +15,4 @@ const potSchema = new Schema({
     }]
 })
 
-module.exports = model('PotSchema', potSchema)  
+module.exports = model('PotSchema', potSchema)
