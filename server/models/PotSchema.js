@@ -12,10 +12,10 @@ const potSchema = new Schema({
         type: String,
         required: true
     },
-    data:{
+    data:[{
         type: Schema.Types.ObjectId,
         ref: 'PotDataSchema'
-    }
+    }]
 })
 
 module.exports = model('PotSchema', potSchema)  
