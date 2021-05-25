@@ -15,7 +15,7 @@ const potDataSchema = new Schema({
     },
     pot:{
         type: Schema.Types.ObjectId,
-        ref: 'PotData'
+        ref: 'PotSchema'
     },
 })
 

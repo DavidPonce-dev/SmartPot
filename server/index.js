@@ -23,6 +23,12 @@ const main = async () => {
         app.listen(3000, ()=>{
             console.log("Servidor corriendo en el puerto 3000");
         });
+        const potService = require("./services/pot.services")
+        potService.createPot({
+              chipID: "asdasd",
+              name: "Macetaza",
+              key:"LLAve",
+        })
 
     } catch (error) {
         console.error(error)

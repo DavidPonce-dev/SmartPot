@@ -7,7 +7,12 @@ const potSchema = new Schema({
     },
     name: {
         type: String,
-        required: true
+        required: false,
+        default: ""
+    },
+    key:{
+        type: String,
+        required: false
     },
     data:[{
         type: Schema.Types.ObjectId,
