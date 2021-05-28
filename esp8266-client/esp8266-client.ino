@@ -1,6 +1,11 @@
 #include <WiFiManager.h>
 #include "libs/PotApi.cpp"
 
+#include <Wire.h> 
+#include <LiquidCrystal_I2C.h>
+
+LiquidCrystal_I2C lcd(0x3f,16,2);
+
 PotApi pot;
 
 const char* apSSID = "SmartPot-setup";
@@ -18,6 +23,14 @@ void wifiManagerConfig() {
 }
 
 void setup() {
+    
+  lcd.init();            // our display has 16 cols, 2 rows
+  lcd.backlight();      // Turn on the backlight
+  lcd.setCursor(3,0);
+  lcd.print("Hello, world!");
+  lcd.setCursor(0,1);
+  lcd.print("Ywrobot Arduino!");
+
     Serial.begin(115200);
     wifiManagerConfig();
     pot.begin("http://192.168.43.236:3000");
