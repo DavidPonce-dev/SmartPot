@@ -37,4 +37,5 @@ void setup() {
 }
 
 void loop(){
+  pot.loop();
 }
