@@ -1,11 +1,11 @@
 #include <WiFiManager.h>
-#include "libs/PotApi.cpp"
+#include "libs/Pot.cpp"
 
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
 LiquidCrystal_I2C lcd(0x3f, 16, 2);
-PotApi pot;
+Pot pot;
 
 void lcdInit() {
   lcd.init();
